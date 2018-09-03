@@ -1,0 +1,15 @@
+{
+  "generator-sassdoc-theme": {
+    "themeName": "igniteui-sassdoc",
+    "themeEngine": "handlebars",
+    "author": {
+      "name": "Simeon Simeonoff"
+    },
+    "themeDesc": "Default SassDoc theme used in Ignite UI for Angular.",
+    "version": "0.1.0",
+    "useExtras": true,
+    "useSass": true,
+    "useSassUtils": true,
+    "useTaskRunner": "gulp"
+  }
+}

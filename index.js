@@ -43,7 +43,7 @@ const theme = themeleon(__dirname, function (t) {
       authors: 'partials/authors',
       example: 'partials/example',
       github: 'partials/github',
-      propertyHeader: 'partials/property-header',
+      definitionHeader: 'partials/definitionHeader',
       require: 'partials/require',
       search: 'partials/search',
       sidenav: 'partials/sidenav',

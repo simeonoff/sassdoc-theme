@@ -1,0 +1,21 @@
+{{#with require}}
+<article>
+    <header role="group">
+        <h4>Requires</h4>
+    </header>
+    <section>
+        <ul>
+        {{#each this}}
+            {{#with item}}
+                <li>
+                    <a href="#{{context.type}}-{{context.name}}">
+                        <span>{{context.type}}</span>
+                        <span>{{context.name}}</span>
+                    </a>
+                </li>
+            {{/with}}
+        {{/each}}
+        </ul>
+    </section>
+</article>
+{{/with}}

@@ -1,0 +1,11 @@
+{{#with example}}
+{{#each this}}
+<article>
+    <header>
+        <span>{{type}}</span>
+        {{{description}}}
+    </header>
+    <pre><code lang={{type}}>{{code}}</code></pre>
+</article>
+{{/each}}
+{{/with}}

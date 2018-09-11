@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Your SassDoc Theme</title>
+        <title>Ignite UI for Angular | Sass Documentation</title>
         <link rel="stylesheet" href="https://use.typekit.net/zhy2hpz.css">
         <link rel="stylesheet" href="assets/css/main.css" />
         {{!
@@ -98,83 +98,30 @@
         </nav>
 
         <aside class="col-md-8">
-            <h1>SassDoc</h1>
             {{#each _data.byGroupAndType}}
                 <section>
                     <h1>{{@key}}</h1>
                     {{#each this}}
                     {{#if this}}
-
                         {{#each this}}
-                    
                             <article id="{{context.type}}-{{context.name}}">
-                                <h3>
-                                    <p>{{access}}</p>
-                                    <span>{{context.type}}</span>
-                                    <span>{{context.name}} </span>
-                                </h3>
-
-                               {{{description}}}
-
-                                {{#if context.code}}
-                                    <pre><code lang="scss">{{context.code}}</code></pre>
-                                {{/if}}
-
-                                {{#with example}}
-                                    {{#each this}}
-                                        <article>
-                                            <header>
-                                                <span>{{type}}</span>
-                                                {{{description}}}
-                                            </header>
-                                            <pre><code lang={{type}}>{{code}}</code></pre>
-                                        </article>
-                                    {{/each}}
-                                {{/with}}
-
-                                 {{> parameters}}
-                                 {{> authors}}
-                                 {{> usedBy}}
-
-
-
-                                {{#with require}}
-                                    <article>
-                                        <header role="group">
-                                            <h4>Requires</h4>
-                                        </header>
-                                        <section>
-                                            <ul>
-                                            {{#each this}}
-                                                {{#with item}}
-                                                    <li>
-                                                        <a href="#{{context.type}}-{{context.name}}">
-                                                            <span>{{context.type}}</span>
-                                                            <span>{{context.name}}</span>
-                                                        </a>
-                                                    </li>
-                                                {{/with}}
-                                            {{/each}}
-                                            </ul>
-                                        </section>
-                                    </article>
-                                {{/with}}
-
-                                <article>
-                                    <header role="group">
-                                        <h4>Defined in:</h4>
-                                    </header>
-                                    <a href="{{github file.path commentRange.start}}" target="_blank">{{file.path}}</a>
-                                </article>
-
+                                {{> definitionHeader}}
+                                {{{description}}}
+                                {{~>source~}}
+                                {{~>example~}}
+                                {{> parameters}}
+                                {{> authors}}
+                                {{> usedBy}}
+                                {{> require}}
+                                {{> github}}
                             </article>
-                            
                         {{/each}}
                     {{/if}}
                     {{/each}}
                 </section>
             {{/each}}
         </aside>
+
     </main>
     {{!
      ! If your theme needs some JavaScript, feel free to create a JS file in `assets/js/` folder

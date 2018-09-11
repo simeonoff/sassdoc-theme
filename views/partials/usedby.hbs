@@ -1,0 +1,19 @@
+{{#with usedBy}}
+<article>
+    <header role="group">
+        <h4>Used by</h4>
+    </header>
+    <section>
+        <ul>
+        {{#each this}}
+            <li>
+                <a href="#{{context.type}}-{{context.name}}">
+                    <span>{{context.type}}</span>
+                    <span>{{context.name}}</span> 
+                </a>
+            </li>
+        {{/each}}
+        </ul>
+    </section>
+</article>
+{{/with}}

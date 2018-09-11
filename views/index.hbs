@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Your SassDoc Theme</title>
+        <link rel="stylesheet" href="https://use.typekit.net/zhy2hpz.css">
+        <link rel="stylesheet" href="assets/css/main.css" />
+        {{!
+         ! Feel free to add more meta or stylesheets. It's up to you.
+         }}
+    </head>
+
+    <body class="container">
+
+    {{!
+     ! You can access any variable you set in your configuration file from the `view` object.
+     ! Basically your configuration file is passed to the view as the `view` object.
+     }}
+
+    {{!
+     ! Data comes with a `byGroupAndType` key which contains the data tree
+     ! with groups as first level (default group is named `undefined`),
+     ! types as second level (`function`, `variable` or `mixin`), items as third level.
+     ! So: `groups > types > items`.
+     !
+        _data.byGroupAndType = {
+            'undefined': {
+                'function': [ ... ],
+                'mixin': [ ... ],
+                'variable': [ ... ],
+            },
+        }
+     !
+     ! For extra informations about the `data` interface, be sure to have a look at the wiki:
+     ! https://github.com/SassDoc/sassdoc/wiki/SassDoc-Data-Interface
+     }}
+
+    {{!
+     ! Groups usually have quite unfriendly names, hence `undefined`. Fortunately, they can be aliased
+     ! from the configuration file of the theme. Then, SassDoc processes it to generate a `groups` object.
+     ! In this object, each group name is mapped to either an alias if specified in the configuration file
+     ! or the same group name. For instance:
+     !
+        groups = {
+            'undefined': 'My Awesome Default Group',
+        }
+     !
+     ! To retrieve the alias of a group, use `groups[group_name]`. In this case, `groups['undefined']` will
+     ! return `My Awesome Default Group`.
+     }}
+
+    {{!
+     ! To display our items, we need to:
+     ! 1. Loop over `_data.byGroupAndType` groups
+     ! 2. Loop over types mapped to each group
+     ! 3. Loop over items mapped to each type
+     }}
+
+    {{! 1. Loop over the groups in `_data.byGroupAndType` }}
+    <main class="row" role="main">
+        <nav class="col-md-4" role="navigation">
+            <div class="search-form">
+                <input id="search" class="search-form__input" type="text">
+                <div id="search-results" class="search-form__results"></div>
+            </div>
+
+            {{#each _data.byGroupAndType}}
+
+                <ul>
+                    {{! Retrieve group alias if any (else group name) }}
+                    <li>
+                        <h1>{{@key}}</h1>
+                    </li>
+
+                    {{! 2. Loop over the types in the current group }}
+                    {{#each this}}
+
+                    {{! If items to be displayed in type }}
+                    {{#if this}}
+                    <ul>
+                        {{! 3. Loop over the items in the current type }}
+                        {{#each this}}
+                        <li>
+                            {{! At this point it is up to you to display whatever you want from your items. }}
+                            <a href="#{{context.type}}-{{context.name}}">
+                                <span>{{context.name}}</span>
+                                <span>{{context.type}}</span>
+                            </a>
+                        </li>
+                        {{/each}}
+                    </ul>
+                    {{/if}}
+
+                    {{/each}}
+                </ul>
+            {{/each}}
+        </nav>
+
+        <aside class="col-md-8">
+            <h1>SassDoc</h1>
+            {{#each _data.byGroupAndType}}
+                <section>
+                    <h1>{{@key}}</h1>
+                    {{#each this}}
+                    {{#if this}}
+
+                        {{#each this}}
+                    
+                            <article id="{{context.type}}-{{context.name}}">
+                                <h3>
+                                    <p>{{access}}</p>
+                                    <span>{{context.type}}</span>
+                                    <span>{{context.name}} </span>
+                                </h3>
+
+                               {{{description}}}
+
+                                {{#if context.code}}
+                                    <pre><code lang="scss">{{context.code}}</code></pre>
+                                {{/if}}
+
+                                {{#with example}}
+                                    {{#each this}}
+                                        <article>
+                                            <header>
+                                                <span>{{type}}</span>
+                                                {{{description}}}
+                                            </header>
+                                            <pre><code lang={{type}}>{{code}}</code></pre>
+                                        </article>
+                                    {{/each}}
+                                {{/with}}
+
+                                 {{> parameters}}
+                                 {{> authors}}
+                                 {{> usedBy}}
+
+
+
+                                {{#with require}}
+                                    <article>
+                                        <header role="group">
+                                            <h4>Requires</h4>
+                                        </header>
+                                        <section>
+                                            <ul>
+                                            {{#each this}}
+                                                {{#with item}}
+                                                    <li>
+                                                        <a href="#{{context.type}}-{{context.name}}">
+                                                            <span>{{context.type}}</span>
+                                                            <span>{{context.name}}</span>
+                                                        </a>
+                                                    </li>
+                                                {{/with}}
+                                            {{/each}}
+                                            </ul>
+                                        </section>
+                                    </article>
+                                {{/with}}
+
+                                <article>
+                                    <header role="group">
+                                        <h4>Defined in:</h4>
+                                    </header>
+                                    <a href="{{github file.path commentRange.start}}" target="_blank">{{file.path}}</a>
+                                </article>
+
+                            </article>
+                            
+                        {{/each}}
+                    {{/if}}
+                    {{/each}}
+                </section>
+            {{/each}}
+        </aside>
+    </main>
+    {{!
+     ! If your theme needs some JavaScript, feel free to create a JS file in `assets/js/` folder
+     ! and include it as follow:
+     !
+     !
+     }}
+    <script src="https://unpkg.com/lunr/lunr.js"></script>
+    <script src="assets/js/vendor/highlight.pack.js"></script>
+    <script>window.sassdocIndex = {{{json idx}}}</script>
+    <script src="assets/js/main.js"></script>
+    </body>
+</html>

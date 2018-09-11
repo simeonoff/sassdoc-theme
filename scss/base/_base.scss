@@ -1,5 +1,6 @@
-//
-// Univeral box-sizing reset
+@import './normalize';
+@import './typography';
+
 html {
   box-sizing: border-box;
 }

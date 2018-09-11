@@ -1,0 +1,12 @@
+{{#with author}}
+<article class="authors">
+    <header>
+        <h4 class="authors__title">Authors</h4>
+    </header>
+    <section class="authors__names">
+    {{#each this}}
+        {{{this}}}
+    {{/each}}
+    </section>
+</article>
+{{/with}}

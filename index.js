@@ -4,13 +4,13 @@
  * See <https://github.com/themeleon/themeleon>.
  * See <https://github.com/tj/consolidate.js>.
  */
-var themeleon = require('themeleon')().use('consolidate');
+const themeleon = require('themeleon')().use('consolidate');
 
 /**
  * Utility function we will use to merge a default configuration
  * with the user object.
  */
-var extend = require('extend');
+const extend = require('extend');
 
 /**
  * SassDoc extras (providing Markdown and other filters, and different way to
@@ -18,8 +18,9 @@ var extend = require('extend');
  *
  * See <https://github.com/SassDoc/sassdoc-extras>.
  */
-var extras = require('sassdoc-extras');
+const extras = require('sassdoc-extras');
 
+const lunr = require('lunr');
 /**
  * The theme function. You can directly export it like this:
  *
@@ -30,18 +31,39 @@ var extras = require('sassdoc-extras');
  *
  * The theme function describes the steps to render the theme.
  */
-var theme = themeleon(__dirname, function (t) {
+const theme = themeleon(__dirname, function (t) {
   /**
    * Copy the assets folder from the theme's directory in the
    * destination directory.
    */
   t.copy('assets');
 
-  var options = {
+  const options = {
     partials: {
-      // Add your partial files here.
-      // foo: 'views/foo.handlebars',
-      // 'foo/bar': 'views/foo/bar.handlebars',
+      authors: 'partials/authors',
+      example: 'partials/example',
+      github: 'partials/github',
+      propertyHeader: 'partials/property-header',
+      require: 'partials/require',
+      search: 'partials/search',
+      sidenav: 'partials/sidenav',
+      source: 'partials/source',
+      usedBy: 'partials/usedby',
+      parameters: 'partials/parameters',
+      example: 'partials/example'
+    },
+    helpers: {
+      debug: function (content) {
+        console.log("----VALUE-----");
+        console.log(content);
+      },
+      json: function (context) {
+        return JSON.stringify(context);
+      },
+      github: function (file, line) {
+        const url = 'https://github.com/IgniteUI/igniteui-angular/tree/master/projects/igniteui-angular/src/lib/core/styles/';
+        return `${url}${file}#L${line}`;
+      }
     },
   };
 
@@ -49,7 +71,7 @@ var theme = themeleon(__dirname, function (t) {
    * Render `views/index.handlebars` with the theme's context (`ctx` below)
    * as `index.html` in the destination directory.
    */
-  t.handlebars('views/index.handlebars', 'index.html', options);
+  t.handlebars('views/index.hbs', 'index.html', options);
 });
 
 /**
@@ -57,20 +79,20 @@ var theme = themeleon(__dirname, function (t) {
  * (that will be handled by Themeleon), and the context variables `ctx`.
  *
  * Here, we will modify the context to have a `view` key defaulting to
- * a literal object, but that can be overriden by the user's
+ * a literal object, but that can be overridden by the user's
  * configuration.
  */
 module.exports = function (dest, ctx) {
   var def = {
     display: {
       access: ['public', 'private'],
-      alias: false,
-      watermark: true,
+      alias: true,
+      watermark: false,
     },
     groups: {
       'undefined': 'General',
     },
-    'shortcutIcon': 'http://sass-lang.com/favicon.ico',
+    'shortcutIcon': 'http://sass-lang.com/favicon.ico'
   };
 
   // Apply default values for groups and display.
@@ -141,6 +163,19 @@ module.exports = function (dest, ctx) {
    * You can then use `data.byGroupAndType` instead of `data` in your
    * templates to manipulate the indexed object.
    */
+  ctx.idx = lunr(function () {
+    this.field('type');
+    this.field('name');
+
+    ctx.data.forEach((doc) => {
+      this.add({
+        id: `${doc.context.type}-${doc.context.name}`,
+        name: doc.context.name,
+        type: doc.context.type
+      });
+    }, this);
+  });
+
   ctx.data.byGroupAndType = extras.byGroupAndType(ctx.data);
 
   // Avoid key collision with Handlebars default `data`.

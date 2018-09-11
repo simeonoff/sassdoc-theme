@@ -22,7 +22,7 @@ var sassdoc = require('sassdoc');
 
 // Set your Sass project (the one you're generating docs for) path.
 // Relative to this Gulpfile.
-var projectPath = '../';
+var projectPath = '../igniteui-angular/projects/igniteui-angular/src/lib/core/styles/';
 
 // Project path helper.
 var project = function () {
@@ -39,15 +39,17 @@ var dirs = {
   svg: 'assets/svg',
   js: 'assets/js',
   tpl: 'views',
-  src: project('sass'),
-  docs: project('sassdoc')
+  src: projectPath,
+  docs: './sassdoc'
 };
 
 
 gulp.task('styles', function () {
   var browsers = ['last 2 version', '> 1%', 'ie 9'];
   var processors = [
-    require('autoprefixer-core')({ browsers: browsers }),
+    require('autoprefixer')({
+      browsers: browsers
+    })
   ];
 
   return gulp.src('./scss/**/*.scss')
@@ -122,7 +124,7 @@ gulp.task('dumpCSS', ['styles'], function () {
 gulp.task('develop', ['compile', 'styles', 'browser-sync'], function () {
   gulp.watch('scss/**/*.scss', ['styles', 'dumpCSS']);
   gulp.watch('assets/js/**/*.js', ['dumpJS']);
-  gulp.watch('views/**/*.+{handlebars|hbs}', ['compile']);
+  gulp.watch('views/**/*.{handlebars,hbs}', ['compile']);
 });
 
 
@@ -130,7 +132,9 @@ gulp.task('svgmin', function () {
   return gulp.src('assets/svg/*.svg')
     .pipe(cache(
       imagemin({
-        svgoPlugins: [{ removeViewBox: false }]
+        svgoPlugins: [{
+          removeViewBox: false
+        }]
       })
     ))
     .pipe(gulp.dest('assets/svg'));

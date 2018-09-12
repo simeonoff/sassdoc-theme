@@ -65,9 +65,14 @@ const theme = themeleon(__dirname, function (t) {
         return `${url}${file}#L${line}`;
       },
       typeClass: function(context) {
-        console.log(context);
-
-        return context === "mixin" ? "--mixin" : "--function";
+        switch(context) {
+          case "mixin":
+            return "--mixin";
+          case "function":
+            return "--function";
+          default:
+            return "";
+        }
       }
     },
   };

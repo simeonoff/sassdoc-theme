@@ -33,5 +33,8 @@ $black: #333 !default;
 
 
 /// Global Gutter
-$bottom-gutter: 30;
-$top-gutter: 15;
+$bottom-gutter: 32;
+$bottom-gutter-sm: 16;
+$top-gutter: 8;
+$top-margin: $bottom-gutter;
+$top-margin-negative: -16;

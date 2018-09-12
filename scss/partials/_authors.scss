@@ -1,18 +1,18 @@
 @include b(authors) {
-  margin-bottom: rem(35);
+  margin: rem($top-gutter) 0 rem($bottom-gutter) 0;
 
   @include e(title) {
     @extend %section-title;
   }
 
   @include e(names) {
-    margin-bottom: rem(5);
     a {
      @extend %link-style;
     }
   }
 
   @include e(names-list) {
-       @extend %list-style;
+    @extend %list-style;
+    margin-bottom: 0;
   }
 }

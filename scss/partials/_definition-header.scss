@@ -2,15 +2,26 @@
   display: flex;
   align-items: center;
   font-weight: 400;
-  margin: rem(10) 0 rem(20);
   color: $black;
+  margin: rem($top-margin) 0 rem($bottom-gutter) 0;
 
   @include e(access) {
-    text-transform: capitalize;
+    font-style: italic;
+    padding: rem(2) rem(5);
+    background: #f8f8f8;
+    text-transform: lowercase;
+    font-weight: 300;
+    color: $base-color;
+    font-size: rem(14);
+  }
+
+  @include e(name) {
+    margin-right: rem(8);
   }
 
   @include e(type) {
     @extend %type;
-    margin-right: 5px;
+    padding: 0 8px;
+    margin-right: rem(16);
   }
 }

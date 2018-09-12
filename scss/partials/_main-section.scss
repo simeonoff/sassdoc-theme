@@ -11,6 +11,7 @@
   }
 
   @include e(article) {
-    margin: rem($top-gutter) 0 rem($bottom-gutter) 0;
+    border-bottom: 1px dashed $base-border-color;
+    margin-top: rem($top-gutter);
   }
 }

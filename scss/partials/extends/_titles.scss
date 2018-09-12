@@ -10,17 +10,28 @@
 }
 
 %type {
-  padding: rem(2, $browser-context) rem(4, $browser-context) rem(3, $browser-context);
-  margin-left: rem(8, $browser-context);
   border: 1px solid $igblue;
   color: $igblue;
   font-size: rem(12);
   line-height: rem(24);
   font-weight: 400;
+  padding: 2px 4px;
+}
+
+%type-mixin {
+  background: $igblue;
+  color: #fff;
+}
+
+%type-function {
+  background: $yellow;
+  border-color: $yellow;
+  color: #fff;
 }
 
 %list-style {
   list-style-type: none;
   list-style-position: inside;
-  padding-left: rem(15);
+  padding:0;
+  margin: rem($top-gutter) 0 rem($bottom-gutter) 0;
 }

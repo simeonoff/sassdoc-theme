@@ -21,4 +21,14 @@
     @extend %type;
     margin-left: 0;
   }
+
+  @include e(list-type, $m: mixin) {
+    @extend %type;
+    @extend %type-mixin ;
+  }
+
+  @include e(list-type, $m: function) {
+    @extend %type;
+    @extend %type-function;
+  }
 }

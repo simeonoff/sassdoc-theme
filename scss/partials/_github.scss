@@ -1,4 +1,6 @@
 @include b(defind-in) {
+  margin: rem($top-margin-negative) 0 rem($bottom-gutter) 0;
+
   @include e(header) {
     display: flex;
     align-items: center;
@@ -8,7 +10,7 @@
   @include e(title) {
     @extend %section-title;
     font-size: rem(14);
-    margin:0 rem(5) 0 0;
+    margin-right: rem(4);
   }
 
   @include e(path) {

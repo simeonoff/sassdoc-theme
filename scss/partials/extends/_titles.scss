@@ -1,0 +1,26 @@
+%section-title {
+  color: $black;
+  font-weight: 400;
+}
+
+%link-style {
+  color: $igblue;
+  font-size: rem(14);
+  text-decoration: none;
+}
+
+%type {
+  padding: rem(2, $browser-context) rem(4, $browser-context) rem(3, $browser-context);
+  margin-left: rem(8, $browser-context);
+  border: 1px solid $igblue;
+  color: $igblue;
+  font-size: rem(12);
+  line-height: rem(24);
+  font-weight: 400;
+}
+
+%list-style {
+  list-style-type: none;
+  list-style-position: inside;
+  padding-left: rem(15);
+}

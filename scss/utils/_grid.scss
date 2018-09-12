@@ -1,15 +1,15 @@
 $num-columns: 12;
-$context: 16px;
+$browser-context: 16px;
 $xs-min: 320px;
 $sm-min: 480px;
 $md-min: 768px;
 $lg-min: 1280px;
-$sm-res: rem($sm-min, $context);
-$md-res: rem($md-min, $context);
-$lg-res: rem($lg-min, $context);
+$sm-res: rem($sm-min, $browser-context);
+$md-res: rem($md-min, $browser-context);
+$lg-res: rem($lg-min, $browser-context);
 $sizes: (sm: $sm-res, md: $md-res, lg: $lg-res);
-$gutter-width: rem(24px, $context);
-$outer-margin: rem(15px, $context);
+$gutter-width: rem(24px, $browser-context);
+$outer-margin: rem(15px, $browser-context);
 $half-gutter-width: $gutter-width / 2;
 
 @mixin column($name, $num) {

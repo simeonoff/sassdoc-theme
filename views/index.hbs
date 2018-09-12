@@ -70,7 +70,7 @@
                 <ul>
                     {{! Retrieve group alias if any (else group name) }}
                     <li>
-                        <h1>{{@key}}</h1>
+                        <h1w>{{@key}}</h1w>
                     </li>
 
                     {{! 2. Loop over the types in the current group }}
@@ -99,12 +99,12 @@
 
         <aside class="col-md-8">
             {{#each _data.byGroupAndType}}
-                <section>
-                    <h1>{{@key}}</h1>
+                <section class="main-section">
+                    <h1 class="main-section__title">{{@key}}</h1>
                     {{#each this}}
                     {{#if this}}
                         {{#each this}}
-                            <article id="{{context.type}}-{{context.name}}">
+                            <article class="main-section__article" id="{{context.type}}-{{context.name}}">
                                 {{> definitionHeader}}
                                 {{{description}}}
                                 {{~>source~}}

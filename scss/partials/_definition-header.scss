@@ -1,0 +1,16 @@
+@include b(definition-header) {
+  display: flex;
+  align-items: center;
+  font-weight: 400;
+  margin: rem(10) 0 rem(20);
+  color: $black;
+
+  @include e(access) {
+    text-transform: capitalize;
+  }
+
+  @include e(type) {
+    @extend %type;
+    margin-right: 5px;
+  }
+}

@@ -1,9 +1,18 @@
 @include b(authors) {
-    @include e(header) {
-        
-    }
+  margin-bottom: rem(35);
 
-    @include e(names) {
+  @include e(title) {
+    @extend %section-title;
+  }
 
+  @include e(names) {
+    margin-bottom: rem(5);
+    a {
+     @extend %link-style;
     }
+  }
+
+  @include e(names-list) {
+       @extend %list-style;
+  }
 }

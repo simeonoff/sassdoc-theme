@@ -1,15 +1,15 @@
 {{#with usedBy}}
-<article>
+<article class="usedby">
     <header role="group">
-        <h4>Used by</h4>
+        <h4 class="usedby__title">Used by</h4>
     </header>
     <section>
-        <ul>
+        <ul class="usedby__list">
         {{#each this}}
-            <li>
-                <a href="#{{context.type}}-{{context.name}}">
-                    <span>{{context.type}}</span>
-                    <span>{{context.name}}</span> 
+            <li class="usedby__list-item">
+                <a class="usedby__list-link" href="#{{context.type}}-{{context.name}}">
+                    <span class="usedby__list-type{{typeClass context.type}}">{{context.type}}</span>
+                    <span class="usedby__list-name">{{context.name}}</span>
                 </a>
             </li>
         {{/each}}

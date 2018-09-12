@@ -1,0 +1,17 @@
+@include b(defind-in) {
+  @include e(header) {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  @include e(title) {
+    @extend %section-title;
+    font-size: rem(14);
+    margin:0 rem(5) 0 0;
+  }
+
+  @include e(path) {
+    @extend %link-style;
+  }
+}

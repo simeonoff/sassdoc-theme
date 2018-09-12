@@ -9,6 +9,7 @@
     </head>
 
     <body class="container">
+        {{> header}}
     {{!
      ! You can access any variable you set in your configuration file from the `view` object.
      ! Basically your configuration file is passed to the view as the `view` object.
@@ -116,6 +117,8 @@
         </aside>
 
     </main>
+
+    {{> footer}}
     {{!
      ! If your theme needs some JavaScript, feel free to create a JS file in `assets/js/` folder
      ! and include it as follow:

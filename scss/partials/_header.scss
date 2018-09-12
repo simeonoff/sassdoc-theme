@@ -1,0 +1,13 @@
+@include b(header) {
+    background: #222;
+
+    @include e(logo) {
+        color: #fff;
+    }
+
+    @include e(logo-name) { }
+
+    @include e(logo-version) { }
+
+    @include e(menu) { }
+}

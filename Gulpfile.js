@@ -53,7 +53,7 @@ gulp.task('styles', function () {
   ];
 
   return gulp.src('./scss/**/*.scss')
-    .pipe(sass())
+    .pipe(sass.sync().on('error', sass.logError))
     .pipe(postcss(processors))
     .pipe(gulp.dest('assets/css'));
 });

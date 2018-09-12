@@ -1,0 +1,36 @@
+@include b(search-form) {
+    position: relative;
+
+    @include e(input) {
+        width: 100%;
+    }
+
+    @include e(results) {
+        position: absolute;
+        top: 24px;
+        width: 100%;
+        background: #fff;
+        max-height: 300px;
+        overflow-y: auto;
+        opacity: .94;
+        border: 1px solid #dedede;
+    }
+
+    @include e(results, $m: hidden) {
+        display: none;
+    }
+
+    @include e(results-list) {
+        list-style: none;
+        padding: 0;
+        margin: 8px 0;
+    }
+
+    @include e(results-list-item) {
+        padding: 8px 16px;
+
+        &:hover {
+            background: #dedede;
+        }
+    }
+}

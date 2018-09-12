@@ -6,13 +6,9 @@
         <title>Ignite UI for Angular | Sass Documentation</title>
         <link rel="stylesheet" href="https://use.typekit.net/zhy2hpz.css">
         <link rel="stylesheet" href="assets/css/main.css" />
-        {{!
-         ! Feel free to add more meta or stylesheets. It's up to you.
-         }}
     </head>
 
     <body class="container">
-
     {{!
      ! You can access any variable you set in your configuration file from the `view` object.
      ! Basically your configuration file is passed to the view as the `view` object.
@@ -57,40 +53,37 @@
      ! 3. Loop over items mapped to each type
      }}
 
-    {{! 1. Loop over the groups in `_data.byGroupAndType` }}
     <main class="row" role="main">
         <nav class="col-md-4" role="navigation">
             <div class="search-form">
-                <input id="search" class="search-form__input" type="text">
-                <div id="search-results" class="search-form__results"></div>
+                <input id="search" class="search-form__input" data-toggles="search-form__results" type="text">
+                <div id="search-results" class="search-form__results search-form__results--hidden"></div>
             </div>
-
+            {{! 1. Loop over the groups in `_data.byGroupAndType` }}
             {{#each _data.byGroupAndType}}
-
-                <ul>
+                <ul class="nav-group">
                     {{! Retrieve group alias if any (else group name) }}
-                    <li>
-                        <h1w>{{@key}}</h1w>
+                    <li class="nav-group__header nav-group__header--collapsed" data-toggles="{{@key}}-group">
+                        <h1>{{@key}}</h1>
                     </li>
 
                     {{! 2. Loop over the types in the current group }}
                     {{#each this}}
-
-                    {{! If items to be displayed in type }}
-                    {{#if this}}
-                    <ul>
-                        {{! 3. Loop over the items in the current type }}
-                        {{#each this}}
-                        <li>
-                            {{! At this point it is up to you to display whatever you want from your items. }}
-                            <a href="#{{context.type}}-{{context.name}}">
-                                <span>{{context.name}}</span>
-                                <span>{{context.type}}</span>
-                            </a>
-                        </li>
-                        {{/each}}
-                    </ul>
-                    {{/if}}
+                        {{! If items to be displayed in type }}
+                        {{#with this}}
+                        <ul class="subnav subnav--collapsed {{@../key}}-group">
+                            {{! 3. Loop over the items in the current type }}
+                            {{#each this}}
+                            <li class="subnav__item">
+                                {{! At this point it is up to you to display whatever you want from your items. }}
+                                <a href="#{{context.type}}-{{context.name}}">
+                                    <span>{{context.name}}</span>
+                                    <span>{{context.type}}</span>
+                                </a>
+                            </li>
+                            {{/each}}
+                        </ul>
+                        {{/with}}
 
                     {{/each}}
                 </ul>
@@ -102,21 +95,21 @@
                 <section class="main-section">
                     <h1 class="main-section__title">{{@key}}</h1>
                     {{#each this}}
-                    {{#if this}}
-                        {{#each this}}
-                            <article class="main-section__article" id="{{context.type}}-{{context.name}}">
-                                {{> definitionHeader}}
-                                {{{description}}}
-                                {{~>source~}}
-                                {{~>example~}}
-                                {{> parameters}}
-                                {{> authors}}
-                                {{> usedBy}}
-                                {{> require}}
-                                {{> github}}
-                            </article>
-                        {{/each}}
-                    {{/if}}
+                        {{#with this}}
+                            {{#each this}}
+                                <article class="main-section__article" id="{{context.type}}-{{context.name}}">
+                                    {{> definitionHeader}}
+                                    {{{description}}}
+                                    {{~>source~}}
+                                    {{~>example~}}
+                                    {{> parameters}}
+                                    {{> authors}}
+                                    {{> usedBy}}
+                                    {{> require}}
+                                    {{> github}}
+                                </article>
+                            {{/each}}
+                        {{/with}}
                     {{/each}}
                 </section>
             {{/each}}

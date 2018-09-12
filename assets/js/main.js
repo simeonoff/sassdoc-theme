@@ -10,7 +10,7 @@
             const name = arr.slice(1).join('-');
 
             return `
-            <li>
+            <li class="search-form__results-list-item">
                 <a href=#${item.ref}>
                     <span>${type}</span>
                     <span>${name}</span>
@@ -22,7 +22,7 @@
 
     const listTemplate = items => {
         return `
-            <ul>
+            <ul class="search-form__results-list">
                 ${renderListItem(items)}
             </ul>
         `;
@@ -32,6 +32,7 @@
     init = () => {
         hljs.initHighlightingOnLoad();
         searchInput.addEventListener('input', this.search);
+        this.toggle('.nav-group__header', 'click');
     }
 
     search = (e) => {
@@ -48,11 +49,36 @@
     }
 
     renderSearchItems = (target, template, data) => {
-        try {
+        if (data) {
             target.innerHTML = template(data);
-        } catch (err) {
-            throw err;
+            this.showSearchResults();
+        } else {
+            this.hideSearchResults();
         }
+    }
+
+    showSearchResults = () => {
+        searchBox.classList.remove('search-form__results--hidden');
+    }
+
+    hideSearchResults = () => {
+        searchBox.classList.add('search-form__results--hidden');
+    }
+
+    toggle = (el, trigger) => {
+        document.querySelectorAll(el).forEach(item => {
+            const group = item.dataset.toggles;
+            item.addEventListener(trigger, () => this.onToggleHandler(group, item));
+        });
+    }
+
+    onToggleHandler = (group, parent) => {
+        const subnav = document.querySelectorAll(`.${group}`);
+
+        parent.classList.toggle(`${parent.classList[0]}--collapsed`);
+        subnav.forEach(nav => {
+            nav.classList.toggle(`${nav.classList[0]}--collapsed`);
+        });
     }
 
     this.init();

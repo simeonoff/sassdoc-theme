@@ -1317,16 +1317,28 @@ h1, h2, h3, h4, h5, h6, p {
   padding: 0;
   margin: 0.5rem 0 2rem 0; }
 
-.main-section {
-  margin: 0.5rem 0 2rem 0; }
-  .main-section__title {
+.main-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex; }
+
+.main-wrapper {
+  max-width: calc(100% - 14.8125rem);
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 0%;
+          flex: 1 0 0%;
+  padding: 1.5rem;
+  margin-top: 3.125rem; }
+  .main-wrapper p {
+    margin-bottom: 2rem; }
+  .main-wrapper__section-title {
     color: #333;
     font-size: 2rem;
     font-weight: 300;
     line-height: 3rem;
     margin-bottom: 0;
     text-transform: uppercase; }
-  .main-section__article {
+  .main-wrapper__section-article {
     border-bottom: 1px dashed #ededed;
     margin-top: 0.5rem; }
 
@@ -1335,18 +1347,35 @@ h1, h2, h3, h4, h5, h6, p {
   .authors__names-list {
     margin-bottom: 0; }
 
+.nav-wrapper {
+  width: 14.8125rem;
+  min-width: 14.8125rem; }
+  .nav-wrapper__nav {
+    background: #eff1f2;
+    width: 14.8125rem;
+    border-right: 1px solid #dedede;
+    position: fixed;
+    height: calc(100% - 3.125rem);
+    overflow-x: hidden;
+    overflow-y: auto;
+    left: 0;
+    top: calc(0rem + 3.125rem); }
+
 .nav-group {
   list-style: none;
   padding: 0; }
   .nav-group__header {
-    cursor: pointer; }
+    cursor: pointer;
+    padding: 0.25rem 1rem; }
+    .nav-group__header:hover h1 {
+      color: #333; }
     .nav-group__header h1 {
       -webkit-user-select: none;
          -moz-user-select: none;
           -ms-user-select: none;
               user-select: none;
-      font-size: 0.875rem;
-      font-weight: 600;
+      font-size: 0.8125rem;
+      font-weight: 500;
       text-transform: uppercase; }
     .nav-group__header h1::before {
       content: '-'; }
@@ -1355,10 +1384,17 @@ h1, h2, h3, h4, h5, h6, p {
 
 .subnav {
   list-style: none;
-  padding: 0 8px; }
+  padding: 0 0.5rem; }
   .subnav__item {
     font-size: 0.8125rem;
-    padding: 4px 0; }
+    padding: 0.5rem 0; }
+    .subnav__item a {
+      text-decoration: none;
+      color: #666;
+      display: block;
+      padding-left: 1.5rem; }
+    .subnav__item:hover a {
+      color: #09f; }
   .subnav--collapsed {
     display: none; }
 
@@ -1387,7 +1423,15 @@ h1, h2, h3, h4, h5, h6, p {
       background: #dedede; }
 
 .header {
-  background: #222; }
+  height: 3.125rem;
+  background: #222;
+  padding: 0.9375rem; }
+  .header--sticky {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1; }
   .header__logo {
     color: #fff; }
 

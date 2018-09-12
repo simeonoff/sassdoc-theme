@@ -1,16 +1,28 @@
-@include b(main-section) {
-  margin: rem($top-gutter) 0 rem($bottom-gutter) 0;
+@include b(main-content) {
+  display: flex;
+}
 
-  @include e(title) {
+@include b(main-wrapper) {
+  max-width: calc(100% - #{rem($navbar-width)});
+  flex: 1 0 0%;
+  padding: rem($content-gutter);
+  margin-top: rem($header-height);
+
+  p {
+    margin-bottom: rem($bottom-gutter);
+  }
+
+  @include e(section-title) {
     color: $black;
     font-size: 2rem;
     font-weight: 300;
     line-height: 3rem;
     margin-bottom: 0;
     text-transform: uppercase;
+
   }
 
-  @include e(article) {
+  @include e(section-article) {
     border-bottom: 1px dashed $base-border-color;
     margin-top: rem($top-gutter);
   }

@@ -1,10 +1,23 @@
 @include b(subnav) {
     list-style: none;
-    padding: 0 8px;
+    padding: 0 rem(8);
 
     @include e(item) {
         font-size: rem(13px, 16px);
-        padding: 4px 0;
+        padding: rem(8) 0;
+
+      a {
+        text-decoration: none;
+        color: $base-color;
+        display: block;
+        padding-left: rem(24);
+      }
+
+      &:hover {
+        a {
+          color: $igblue;
+        }
+      }
     }
 
     @include m(collapsed) {

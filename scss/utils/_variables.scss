@@ -11,6 +11,10 @@ $base-color: #666 !default;
 
 /// Base border-color
 $base-border-color: #ededed !default;
+$nav-border-color: #dedede !default;
+
+/// Infragistics nav gray
+$nav-bg: #eff1f2 !default;
 
 /// Infragistics Blue
 $igblue: #09f !default;
@@ -32,9 +36,17 @@ $yellow: #ffc93c !default;
 $black: #333 !default;
 
 
-/// Global Gutter
+/// Layout config
 $bottom-gutter: 32;
 $bottom-gutter-sm: 16;
 $top-gutter: 8;
+
+$content-gutter: 24;
+
 $top-margin: $bottom-gutter;
 $top-margin-negative: -16;
+
+
+$header-height: 50;
+//$footer-height: 50;
+$navbar-width: 237;

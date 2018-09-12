@@ -1,13 +1,23 @@
 @include b(header) {
-    background: #222;
+  height: rem($header-height);
+  background: #222;
+  padding: rem(15);
 
-    @include e(logo) {
-        color: #fff;
-    }
+  @include m(sticky) {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+  }
 
-    @include e(logo-name) { }
+  @include e(logo) {
+      color: #fff;
+  }
 
-    @include e(logo-version) { }
+  @include e(logo-name) { }
 
-    @include e(menu) { }
+  @include e(logo-version) { }
+
+  @include e(menu) { }
 }

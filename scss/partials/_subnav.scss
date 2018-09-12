@@ -1,0 +1,13 @@
+@include b(subnav) {
+    list-style: none;
+    padding: 0 8px;
+
+    @include e(item) {
+        font-size: rem(13px, 16px);
+        padding: 4px 0;
+    }
+
+    @include m(collapsed) {
+        display: none;
+    }
+}

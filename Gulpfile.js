@@ -79,6 +79,7 @@ gulp.task('compile', function () {
   var config = {
     verbose: true,
     dest: dirs.docs,
+    autofill: [],
     theme: './',
     // Disable cache to enable live-reloading.
     // Usefull for some template engines (e.g. Swig).

@@ -21,6 +21,7 @@ const extend = require('extend');
 const extras = require('sassdoc-extras');
 
 const lunr = require('lunr');
+const fs = require('fs');
 /**
  * The theme function. You can directly export it like this:
  *
@@ -42,6 +43,8 @@ const theme = themeleon(__dirname, function (t) {
     partials: {
       authors: 'partials/authors',
       example: 'partials/example',
+      footer: 'partials/footer',
+      header: 'partials/header',
       github: 'partials/github',
       definitionHeader: 'partials/definitionHeader',
       require: 'partials/require',

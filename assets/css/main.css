@@ -1386,6 +1386,11 @@ h1, h2, h3, h4, h5, h6, p {
     .search-form__results-list-item:hover {
       background: #dedede; }
 
+.header {
+  background: #222; }
+  .header__logo {
+    color: #fff; }
+
 .definition-header {
   display: -webkit-box;
   display: -ms-flexbox;

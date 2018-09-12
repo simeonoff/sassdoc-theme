@@ -3,3 +3,4 @@ node_modules
 .vscode
 sassdoc
 assets/css
+.idea

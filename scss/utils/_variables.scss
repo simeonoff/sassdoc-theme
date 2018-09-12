@@ -6,6 +6,12 @@ $text-font-stack: 'aktiv-grotesk', 'Helvetica Neue Light', 'Helvetica Neue', 'Ar
 /// @type List
 $code-font-stack: 'Courier New', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Monaco', monospace !default;
 
+/// Text-color
+$base-color: #666 !default;
+
+/// Base border-color
+$base-border-color: #ededed !default;
+
 /// Infragistics Blue
 $igblue: #09f !default;
 
@@ -24,3 +30,11 @@ $yellow: #ffc93c !default;
 /// Black
 /// @type Color
 $black: #333 !default;
+
+
+/// Global Gutter
+$bottom-gutter: 32;
+$bottom-gutter-sm: 16;
+$top-gutter: 8;
+$top-margin: $bottom-gutter;
+$top-margin-negative: -16;

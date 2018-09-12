@@ -55,7 +55,7 @@
      }}
 
     <main class="row" role="main">
-        <nav class="col-md-4" role="navigation">
+        <nav class="col-md-2" role="navigation">
             <div class="search-form">
                 <input id="search" class="search-form__input" data-toggles="search-form__results" type="text">
                 <div id="search-results" class="search-form__results search-form__results--hidden"></div>
@@ -91,23 +91,23 @@
             {{/each}}
         </nav>
 
-        <aside class="col-md-8">
+        <aside class="col-md-10">
             {{#each _data.byGroupAndType}}
-                <section>
-                    <h1>{{@key}}</h1>
+                <section class="main-section">
+                    <h1 class="main-section__title">{{@key}}</h1>
                     {{#each this}}
                         {{#with this}}
                             {{#each this}}
-                                <article id="{{context.type}}-{{context.name}}">
+                                <article class="main-section__article" id="{{context.type}}-{{context.name}}">
                                     {{> definitionHeader}}
                                     {{{description}}}
                                     {{~>source~}}
                                     {{~>example~}}
                                     {{> parameters}}
-                                    {{> authors}}
                                     {{> usedBy}}
                                     {{> require}}
                                     {{> github}}
+                                    {{> authors}}
                                 </article>
                             {{/each}}
                         {{/with}}

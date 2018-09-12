@@ -66,6 +66,16 @@ const theme = themeleon(__dirname, function (t) {
       github: function (file, line) {
         const url = 'https://github.com/IgniteUI/igniteui-angular/tree/master/projects/igniteui-angular/src/lib/core/styles/';
         return `${url}${file}#L${line}`;
+      },
+      typeClass: function(context) {
+        switch(context) {
+          case "mixin":
+            return "--mixin";
+          case "function":
+            return "--function";
+          default:
+            return "";
+        }
       }
     },
   };

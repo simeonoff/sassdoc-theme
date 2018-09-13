@@ -53,7 +53,9 @@ const theme = themeleon(__dirname, function (t) {
       source: 'partials/source',
       usedBy: 'partials/usedby',
       parameters: 'partials/parameters',
-      example: 'partials/example'
+      example: 'partials/example',
+      infraHead: 'partials/infragistics/header',
+      infraFoot: 'partials/infragistics/footer'
     },
     helpers: {
       debug: function (content) {
@@ -67,8 +69,8 @@ const theme = themeleon(__dirname, function (t) {
         const url = 'https://github.com/IgniteUI/igniteui-angular/tree/master/projects/igniteui-angular/src/lib/core/styles/';
         return `${url}${file}#L${line}`;
       },
-      typeClass: function(context) {
-        switch(context) {
+      typeClass: function (context) {
+        switch (context) {
           case "mixin":
             return "--mixin";
           case "function":

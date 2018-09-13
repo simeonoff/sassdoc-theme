@@ -1,14 +1,13 @@
 @include b(header) {
-  height: rem($header-height);
-  background: #222;
-  padding: rem(15);
+  display: flex;
+  flex-flow: column nowrap;
 
-  @include m(sticky) {
-    position: fixed;
+  @include e(secondary) {
+    display: flex;
     width: 100%;
-    top: 0;
-    left: 0;
-    z-index: 1;
+    height: rem($header-height);
+    background: #222;
+    padding: rem(15) 0;
   }
 
   @include e(logo) {
@@ -20,4 +19,12 @@
   @include e(logo-version) { }
 
   @include e(menu) { }
+
+  @include m(sticky) {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+  }
 }

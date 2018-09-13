@@ -10,9 +10,7 @@
     height: calc(100% - #{rem($header-height)});
     overflow-x:hidden;
     overflow-y: auto;
-    left: 0;
-    top: calc(0rem + #{rem($header-height)});
-    //bottom: calc(0 - #{rem($footer-height)})
+    // left: 0;
   }
 }
 @include b(nav-group) {

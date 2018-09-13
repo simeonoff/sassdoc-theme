@@ -1,5 +1,6 @@
 @include b(search-form) {
     position: relative;
+    z-index: 3;
 
     @include e(input) {
         width: 100%;

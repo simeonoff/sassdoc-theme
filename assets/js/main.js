@@ -1,7 +1,7 @@
 (function () {
     const idx = lunr.Index.load(sassdocIndex);
     const searchBox = document.getElementById('search-results');
-    const searchInput = document.getElementById("search");
+    const searchInput = document.getElementById('search-docs');
 
     const renderListItem = items => {
         return items.map(item => {
@@ -30,9 +30,9 @@
 
 
     init = () => {
-        hljs.initHighlightingOnLoad();
         searchInput.addEventListener('input', this.search);
         this.toggle('.nav-group__header', 'click');
+        hljs.initHighlightingOnLoad();
     }
 
     search = (e) => {
@@ -40,12 +40,13 @@
         let result = '';
         if (term) {
             result = idx.search(`${term}~1`)
+            console.log(result);
+            this.renderSearchItems(searchBox, listTemplate, result);
         } else {
             this.renderSearchItems(searchBox, () => '', null);
             return;
         }
 
-        this.renderSearchItems(searchBox, listTemplate, result);
     }
 
     renderSearchItems = (target, template, data) => {

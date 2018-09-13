@@ -1,6 +1,8 @@
 @include b(nav-wrapper) {
   width: rem($navbar-width);
   min-width: rem($navbar-width);
+  position: relative;
+  top: rem(43);
 
   @include e(nav) {
     background: $nav-bg;
@@ -10,16 +12,16 @@
     height: calc(100% - #{rem($header-height)});
     overflow-x:hidden;
     overflow-y: auto;
-    // left: 0;
   }
 }
 @include b(nav-group) {
   list-style: none;
   padding: 0;
+  margin: rem(8) 0;
 
   @include e(header) {
     cursor: pointer;
-    padding: rem(4) rem(16);
+    padding: rem(4) rem(8);
 
     &:hover {
       h1 {

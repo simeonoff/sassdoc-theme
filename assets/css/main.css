@@ -1348,7 +1348,9 @@ h1, h2, h3, h4, h5, h6, p {
 
 .nav-wrapper {
   width: 14.8125rem;
-  min-width: 14.8125rem; }
+  min-width: 14.8125rem;
+  position: relative;
+  top: 2.6875rem; }
   .nav-wrapper__nav {
     background: #eff1f2;
     width: 14.8125rem;
@@ -1360,10 +1362,11 @@ h1, h2, h3, h4, h5, h6, p {
 
 .nav-group {
   list-style: none;
-  padding: 0; }
+  padding: 0;
+  margin: 0.5rem 0; }
   .nav-group__header {
     cursor: pointer;
-    padding: 0.25rem 1rem; }
+    padding: 0.25rem 0.5rem; }
     .nav-group__header:hover h1 {
       color: #09f; }
     .nav-group__header h1 {
@@ -1419,9 +1422,23 @@ h1, h2, h3, h4, h5, h6, p {
     display: none; }
 
 .search-form {
-  position: relative; }
+  position: fixed;
+  padding: 0.5rem;
+  background: #eff1f2;
+  border-right: 1px solid #dedede;
+  border-bottom: 1px solid #dedede;
+  width: 14.8125rem;
+  min-width: 14.8125rem;
+  height: 2.6875rem;
+  top: 7.875rem; }
   .search-form__input {
-    width: 100%; }
+    width: 100%;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+    border: 1px solid #dedede; }
+    .search-form__input:focus, .search-form__input:hover {
+      border-color: #09f;
+      outline: none; }
   .search-form__results {
     position: absolute;
     top: 24px;

@@ -1294,21 +1294,20 @@ h1, h2, h3, h4, h5, h6, p {
   font-size: 0.875rem;
   text-decoration: none; }
 
-.definition-header__type, .usedby__list-type, .usedby__list-type--mixin, .usedby__list-type--function, .require__list-type, .require__list-type--mixin, .require__list-type--function {
-  border: 1px solid #09f;
-  color: #09f;
+.subnav__item-type, .subnav__item-type--mixin, .subnav__item-type--function, .definition-header__type, .definition-header__type--mixin, .definition-header__type--function, .usedby__list-type, .usedby__list-type--mixin, .usedby__list-type--function, .require__list-type, .require__list-type--mixin, .require__list-type--function {
+  color: #fff;
+  background: #5c4863;
   font-size: 0.75rem;
   line-height: 1.5rem;
   font-weight: 400;
-  padding: 2px 4px; }
+  padding: 0.125rem 0.25rem; }
 
-.usedby__list-type--mixin, .require__list-type--mixin {
+.subnav__item-type--mixin, .definition-header__type--mixin, .usedby__list-type--mixin, .require__list-type--mixin {
   background: #09f;
   color: #fff; }
 
-.usedby__list-type--function, .require__list-type--function {
+.subnav__item-type--function, .definition-header__type--function, .usedby__list-type--function, .require__list-type--function {
   background: #ffc93c;
-  border-color: #ffc93c;
   color: #fff; }
 
 .authors__names-list, .usedby__list, .require__list {
@@ -1389,12 +1388,26 @@ h1, h2, h3, h4, h5, h6, p {
     font-size: 0.8125rem;
     padding: 0.5rem 0; }
     .subnav__item a {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: start;
+          -ms-flex-pack: start;
+              justify-content: flex-start;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center;
       text-decoration: none;
       color: #666;
-      display: block;
       padding-left: 1.5rem; }
     .subnav__item:hover a {
       color: #09f; }
+  .subnav__item-type {
+    margin-right: 0.25rem; }
+  .subnav__item-type--mixin {
+    margin-right: 0.25rem; }
+  .subnav__item-type--function {
+    margin-right: 0.25rem; }
   .subnav--collapsed {
     display: none; }
 
@@ -1456,7 +1469,10 @@ h1, h2, h3, h4, h5, h6, p {
   .definition-header__name {
     margin-right: 0.5rem; }
   .definition-header__type {
-    padding: 0 8px;
+    margin-right: 1rem; }
+  .definition-header__type--mixin {
+    margin-right: 1rem; }
+  .definition-header__type--function {
     margin-right: 1rem; }
 
 .defind-in {

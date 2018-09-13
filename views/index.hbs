@@ -80,9 +80,11 @@
                                         <li class="subnav__item">
                                             {{! At this point it is up to you to display whatever you want from your items. }}
                                             <a href="#{{context.type}}-{{context.name}}">
-                                                <span>{{context.name}}</span>
                                                 <!-- TODO Make the type dynamic based on function, mixin and var -->
-                                                <span>{{context.type}}</span>
+                                                <span>
+                                                    <span class="subnav__item-type{{typeClass context.type}}">{{context.type}}</span>
+                                                </span>
+                                                <span>{{context.name}}</span>
                                             </a>
                                         </li>
                                     {{/each}}

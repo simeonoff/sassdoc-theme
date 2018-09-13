@@ -1,26 +1,45 @@
 @include b(subnav) {
-    list-style: none;
-    padding: 0 rem(8);
+  list-style: none;
+  padding: 0 rem(8);
 
-    @include e(item) {
-        font-size: rem(13px, 16px);
-        padding: rem(8) 0;
+  @include e(item) {
+      font-size: rem(13px, 16px);
+      padding: rem(8) 0;
 
+    a {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      text-decoration: none;
+      color: $base-color;
+      padding-left: rem(24);
+    }
+
+    &:hover {
       a {
-        text-decoration: none;
-        color: $base-color;
-        display: block;
-        padding-left: rem(24);
-      }
-
-      &:hover {
-        a {
-          color: $igblue;
-        }
+        color: $igblue;
       }
     }
+  }
 
-    @include m(collapsed) {
-        display: none;
-    }
+  @include e(item-type) {
+    @extend %type;
+    margin-right: rem(4);
+  }
+
+  @include e(item-type, $m: mixin) {
+    @extend %type;
+    @extend %type-mixin;
+    margin-right: rem(4);
+  }
+
+  @include e(item-type, $m: function) {
+    @extend %type;
+    @extend %type-function;
+    margin-right: rem(4);
+  }
+
+  @include m(collapsed) {
+      display: none;
+  }
 }

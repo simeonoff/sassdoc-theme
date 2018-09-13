@@ -1295,20 +1295,20 @@ h1, h2, h3, h4, h5, h6, p {
   text-decoration: none; }
 
 .subnav__item-type, .subnav__item-type--mixin, .subnav__item-type--function, .definition-header__type, .definition-header__type--mixin, .definition-header__type--function, .usedby__list-type, .usedby__list-type--mixin, .usedby__list-type--function, .require__list-type, .require__list-type--mixin, .require__list-type--function {
-  color: #fff;
-  background: #5c4863;
+  color: #5c4863;
   font-size: 0.75rem;
   line-height: 1.5rem;
   font-weight: 400;
-  padding: 0.125rem 0.25rem; }
+  padding: 0 0.125rem;
+  border: 1px dashed #d8cedc; }
 
 .subnav__item-type--mixin, .definition-header__type--mixin, .usedby__list-type--mixin, .require__list-type--mixin {
-  background: #09f;
-  color: #fff; }
+  border-color: white;
+  color: #09f; }
 
 .subnav__item-type--function, .definition-header__type--function, .usedby__list-type--function, .require__list-type--function {
-  background: #ffc93c;
-  color: #fff; }
+  border-color: white;
+  color: #ffc93c; }
 
 .authors__names-list, .usedby__list, .require__list {
   list-style-type: none;
@@ -1367,8 +1367,15 @@ h1, h2, h3, h4, h5, h6, p {
     cursor: pointer;
     padding: 0.25rem 1rem; }
     .nav-group__header:hover h1 {
-      color: #333; }
+      color: #09f; }
     .nav-group__header h1 {
+      color: #333;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center;
       -webkit-user-select: none;
          -moz-user-select: none;
           -ms-user-select: none;
@@ -1377,9 +1384,11 @@ h1, h2, h3, h4, h5, h6, p {
       font-weight: 500;
       text-transform: uppercase; }
     .nav-group__header h1::before {
-      content: '-'; }
+      font-family: "Material Icons";
+      content: '\e15b'; }
   .nav-group__header--collapsed h1::before {
-    content: '+'; }
+    font-family: "Material Icons";
+    content: '\e145'; }
 
 .subnav {
   list-style: none;
@@ -1399,7 +1408,7 @@ h1, h2, h3, h4, h5, h6, p {
               align-items: center;
       text-decoration: none;
       color: #666;
-      padding-left: 1.5rem; }
+      padding-left: 1rem; }
     .subnav__item:hover a {
       color: #09f; }
   .subnav__item-type {

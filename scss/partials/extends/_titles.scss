@@ -10,22 +10,22 @@
 }
 
 %type {
-  color: #fff;
-  background: $purple;
+  color: $purple;
   font-size: rem(12, 16);
   line-height: rem(24, 16);
   font-weight: 400;
-  padding: rem(2, 16) rem(4, 16);
+  padding: 0 rem(2, 16);
+  border: 1px dashed lighten($purple, 50%);
 }
 
 %type-mixin {
-  background: $igblue;
-  color: #fff;
+  border-color: lighten($igblue, 50%);
+  color: $igblue;
 }
 
 %type-function {
-  background: $yellow;
-  color: #fff;
+  border-color: lighten($yellow, 50%);
+  color: $yellow;
 }
 
 %list-style {

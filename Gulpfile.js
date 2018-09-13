@@ -81,6 +81,10 @@ gulp.task('compile', function () {
     dest: dirs.docs,
     autofill: [],
     theme: './',
+    package: {
+      name: 'Ignite UI for Angular',
+      version: '6.2.1'
+    },
     // Disable cache to enable live-reloading.
     // Usefull for some template engines (e.g. Swig).
     cache: false,

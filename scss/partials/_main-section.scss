@@ -1,12 +1,12 @@
 @include b(main-content) {
   display: flex;
+  padding-top: rem(126px);
 }
 
 @include b(main-wrapper) {
   max-width: calc(100% - #{rem($navbar-width)});
   flex: 1 0 0%;
   padding: rem($content-gutter);
-  margin-top: rem($header-height);
 
   p {
     margin-bottom: rem($bottom-gutter);

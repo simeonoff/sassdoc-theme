@@ -59,11 +59,11 @@
 
     <main class="main-content" role="main">
         <div class="nav-wrapper">
-            <div class="search-form">
-                <input id="search" class="search-form__input" data-toggles="search-form__results" type="text">
-                <div id="search-results" class="search-form__results search-form__results--hidden"></div>
-            </div>
             <nav class="nav-wrapper__nav" role="navigation">
+                <div class="search-form">
+                    <input id="search-docs" class="search-form__input" data-toggles="search-form__results" type="text">
+                    <div id="search-results" class="search-form__results search-form__results--hidden"></div>
+                </div>
                 {{! 1. Loop over the groups in `_data.byGroupAndType` }}
                 {{#each _data.byGroupAndType}}
                     <ul class="nav-group">
@@ -133,13 +133,13 @@
      !
      !
      }}
-     <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script src="assets/js/vendor/highlight.pack.js"></script>
+    <script src="https://unpkg.com/lunr/lunr.js"></script>
+    <script>window.sassdocIndex = {{{json idx}}}</script>
+    <script src="assets/js/main.js"></script>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
     <script type="text/javascript" src="https://infragistics.com/assets/modern/scripts/jquery-migrate.min.js"></script>
     <script type="text/javascript" src="https://infragistics.com/assets/modern/scripts/plugins.nav.js"></script>
     <script type="text/javascript" src="https://infragistics.com/assets/modern/scripts/navigation.js"></script>
-    <script src="https://unpkg.com/lunr/lunr.js"></script>
-    <script src="assets/js/vendor/highlight.pack.js"></script>
-    <script>window.sassdocIndex = {{{json idx}}}</script>
-    <script src="assets/js/main.js"></script>
     </body>
 </html>

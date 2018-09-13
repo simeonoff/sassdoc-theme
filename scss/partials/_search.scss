@@ -1,4 +1,6 @@
 @include b(search-form) {
+    position: relative;
+    z-index: 3;
     position: fixed;
     padding: rem(8);
     background: $nav-bg;

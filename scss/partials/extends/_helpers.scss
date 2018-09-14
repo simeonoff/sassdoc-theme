@@ -10,22 +10,25 @@
 }
 
 %type {
-  color: $purple;
+  color: $var-color;
   font-size: rem(12, 16);
   line-height: rem(24, 16);
-  font-weight: 400;
+  font-weight: 600;
   padding: 0 rem(2, 16);
-  border: 1px dashed lighten($purple, 50%);
+  border: 1px solid lighten($var-color, 20%);
+  background: lighten($var-color, 40%);
 }
 
 %type-mixin {
-  border-color: lighten($igblue, 50%);
-  color: $igblue;
+  border-color: lighten($mixin-color, 20%);
+  background: lighten($mixin-color, 50%);
+  color: $mixin-color;
 }
 
 %type-function {
-  border-color: lighten($yellow, 50%);
-  color: $yellow;
+  border-color: lighten($function-color, 20%);
+  background:lighten($function-color, 48%);
+  color: $function-color;
 }
 
 %list-style {
@@ -34,3 +37,4 @@
   padding:0;
   margin: rem($top-gutter) 0 rem($bottom-gutter) 0;
 }
+

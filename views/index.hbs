@@ -59,11 +59,14 @@
 
     <main class="main-content" role="main">
         <div class="nav-wrapper">
-            <nav class="nav-wrapper__nav" role="navigation">
-                <div class="search-form">
-                    <input id="search-docs" class="search-form__input" data-toggles="search-form__results" type="text">
-                    <div id="search-results" class="search-form__results search-form__results--hidden"></div>
+            <div class="search-form">
+                <div class="search-form__input-container">
+                    <label for="search-docs" class="material-icons search-form__input-icon">search</label>
+                    <input id="search-docs" class="search-form__input" data-toggles="search-form__results" placeholder="Search SASS doc..." type="text">
                 </div>
+                <div id="search-results" class="search-form__results search-form__results--hidden"></div>
+            </div>
+            <nav class="nav-wrapper__nav" role="navigation">
                 {{! 1. Loop over the groups in `_data.byGroupAndType` }}
                 {{#each _data.byGroupAndType}}
                     <ul class="nav-group">

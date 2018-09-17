@@ -12,7 +12,7 @@
             return `
             <li class="search-form__results-list-item">
                 <a href=#${item.ref}>
-                    <span>${type}</span>
+                    <span class="item--${type}">${type.substring(0, 3)}</span>
                     <span>${name}</span>
                 </a>
             </li>

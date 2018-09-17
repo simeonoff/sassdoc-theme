@@ -14,5 +14,12 @@
   @include e(names-list) {
     @extend %list-style;
     margin-bottom: 0;
+    p {
+      margin-bottom: 0;
+    }
+
+    li {
+      margin-top: rem(12px);
+    }
   }
 }

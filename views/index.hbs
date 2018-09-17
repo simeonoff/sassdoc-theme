@@ -62,7 +62,7 @@
             <div class="search-form">
                 <div class="search-form__input-container">
                     <label for="search-docs" class="material-icons search-form__input-icon">search</label>
-                    <input id="search-docs" class="search-form__input" data-toggles="search-form__results" placeholder="Search SASS doc..." type="text">
+                    <input id="search-docs" class="search-form__input" data-toggles="search-form__results" placeholder="Search" type="text">
                 </div>
                 <div id="search-results" class="search-form__results search-form__results--hidden"></div>
             </div>
@@ -87,7 +87,7 @@
                                             <a href="#{{context.type}}-{{context.name}}">
                                                 <!-- TODO Make the type dynamic based on function, mixin and var -->
                                                 <span>
-                                                    <span class="subnav__item-type{{typeClass context.type}}">{{context.type}}</span>
+                                                    <span class="subnav__item-type{{typeClass context.type}}">{{trimType context.type}}</span>
                                                 </span>
                                                 <span>{{context.name}}</span>
                                             </a>
@@ -111,13 +111,13 @@
                             {{#each this}}
                                 <article class="main-wrapper__section-article" id="{{context.type}}-{{context.name}}">
                                     {{> definitionHeader}}
-                                    {{{description}}}
+                                    {{> description}}
+                                    {{> github}}
                                     {{~>source~}}
                                     {{~>example~}}
                                     {{> parameters}}
                                     {{> usedBy}}
                                     {{> require}}
-                                    {{> github}}
                                     {{> authors}}
                                 </article>
                             {{/each}}

@@ -3,7 +3,7 @@
 
   @include e(title) {
     @extend %section-title;
-    margin:0 rem(5) 0 0;
+    margin-bottom: rem(16px);
   }
 
   @include e(list) {
@@ -12,7 +12,10 @@
 
   @include e(list-link) {
     @extend %link-style;
-
+    color: #666;
+    &:hover {
+      color: $igblue;
+    }
   }
 
   @include e(list-item) {

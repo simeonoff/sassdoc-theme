@@ -10,18 +10,19 @@
 }
 
 %type {
+  margin-right: 4px;
   color: $var-color;
   font-size: rem(12, 16);
   line-height: rem(24, 16);
   font-weight: 600;
   padding: 0 rem(2, 16);
-  border: 1px solid lighten($var-color, 20%);
-  background: lighten($var-color, 40%);
+  border: 1px solid lighten($var-color, 32%);
+  background: lighten($var-color, 46%);
 }
 
 %type-mixin {
-  border-color: lighten($mixin-color, 20%);
-  background: lighten($mixin-color, 50%);
+  border-color: lighten($mixin-color, 60%);
+  background: lighten($mixin-color, 70%);
   color: $mixin-color;
 }
 

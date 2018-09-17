@@ -1,7 +1,7 @@
 @include b(require) {
   @include e(title) {
     @extend %section-title;
-    margin:0 rem(5) 0 0;
+    margin-bottom: rem(16);
   }
 
   @include e(list) {
@@ -10,11 +10,17 @@
 
   @include e(list-link) {
     @extend %link-style;
-    margin-bottom: rem(10);
+    color: #666;
+
+    &:hover {
+      color: $igblue;
+    }
+
+    margin-bottom: rem(8);
   }
 
   @include e(list-item) {
-    margin-bottom: rem(10);
+    margin-bottom: rem(8);
   }
 
   @include e(list-type) {

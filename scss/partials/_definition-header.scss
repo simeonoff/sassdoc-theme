@@ -3,10 +3,10 @@
   align-items: center;
   font-weight: 400;
   color: $black;
-  margin: rem($top-margin) 0 rem($bottom-gutter) 0;
+  margin: rem($top-margin) 0 rem(16px) 0;
 
   @include e(access) {
-    font-style: italic;
+    // font-style: italic;
     padding: rem(2) rem(5);
     background: #f8f8f8;
     text-transform: lowercase;
@@ -21,18 +21,18 @@
 
   @include e(type) {
     @extend %type;
-    margin-right: rem(16);
+    margin-right: rem(8);
   }
 
   @include e(type, $m: mixin) {
     @extend %type;
     @extend %type-mixin;
-    margin-right: rem(16);
+    margin-right: rem(8);
   }
 
   @include e(type, $m: function) {
     @extend %type;
     @extend %type-function;
-    margin-right: rem(16);
+    margin-right: rem(8);
   }
 }

@@ -42,6 +42,7 @@ const theme = themeleon(__dirname, function (t) {
   const options = {
     partials: {
       authors: 'partials/authors',
+      description: 'partials/description',
       example: 'partials/example',
       footer: 'partials/footer',
       header: 'partials/header',
@@ -78,8 +79,11 @@ const theme = themeleon(__dirname, function (t) {
           default:
             return "";
         }
+      },
+      trimType: (value) => {
+        return value.substring(0, 3);
       }
-    },
+    }
   };
 
   /**

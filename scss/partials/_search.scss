@@ -44,12 +44,13 @@
     @include e(results) {
         position: absolute;
         top: rem(36);
-        max-width: rem(500);
+        width: 100%;
         background: #fff;
         max-height: rem(300);
         overflow-y: auto;
         opacity: .94;
         border: 1px solid $base-border-color;
+        box-shadow: 0 12px 24px rgba(#000, .06);
     }
 
     @include e(results, $m: hidden) {
@@ -71,10 +72,28 @@
 
         a {
             @extend %link-style;
+            color: #666;
         }
 
         &:hover {
             background: #dedede;
+        }
+
+
+        .item {
+            &--variable {
+                @extend %type;
+            }
+
+            &--function {
+                @extend %type;
+                @extend %type-function;
+            }
+
+            &--mixin {
+                @extend %type;
+                @extend %type-mixin;
+            }
         }
     }
 }

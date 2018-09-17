@@ -1,6 +1,15 @@
 @include b (parameters-table) {
   margin: rem($top-gutter) 0 rem($bottom-gutter) 0;
 
+  @include e(title) {
+    @extend %section-title;
+    margin: auto -#{rem(15px)};
+    padding: rem(8px);
+    background: $nav-bg;
+    border: 1px solid #ededed;
+    border-bottom: none;
+  }
+
   @include e(header) {
     border: 1px solid $base-border-color;
     border-bottom: none;
@@ -17,6 +26,9 @@
     padding: rem(16) rem(24);
     font-size: rem(14);
     text-align: left;
+    p {
+      margin-bottom: 0;
+    }
   }
 
   @include e(row-cell, $m:name) {

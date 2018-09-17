@@ -1,4 +1,4 @@
-@include b(defind-in) {
+@include b(defined-in) {
   margin: rem($top-margin-negative) 0 rem($bottom-gutter) 0;
 
   @include e(header) {

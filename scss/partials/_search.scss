@@ -68,17 +68,20 @@
     }
 
     @include e(results-list-item) {
-        padding: rem(8) rem(16);
+        display: flex;
 
         a {
             @extend %link-style;
+            padding: rem(8) rem(16);
             color: #666;
-        }
+            flex: 1 1 100%;
+            outline-style: none;
 
-        &:hover {
-            background: #dedede;
+            &:focus,
+            &:hover {
+                background: #dedede;
+            }
         }
-
 
         .item {
             &--variable {

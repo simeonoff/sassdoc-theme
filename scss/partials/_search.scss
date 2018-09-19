@@ -1,6 +1,6 @@
 @include b(search-form) {
-    z-index: 4;
     position: fixed;
+    z-index: 4;
     background: $nav-bg;
     width: rem($navbar-width);
     min-width: rem($navbar-width);

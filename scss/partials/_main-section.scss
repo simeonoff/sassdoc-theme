@@ -1,6 +1,10 @@
 @include b(main-content) {
   display: flex;
-  padding-top: rem(126px);
+  padding-top: rem(map-get($infra-head-height, 'mobile') + $secondary-header-height);
+  
+  @media only screen and (min-width: 960px) {
+    padding-top: rem(map-get($infra-head-height, 'desktop') + $secondary-header-height);
+  }
 }
 
 @include b(main-wrapper) {
@@ -24,6 +28,7 @@
 
   @include e(section-article) {
     border-bottom: 1px dashed $base-border-color;
-    margin-top: rem($top-gutter);
+    margin-top: -#{rem(110)};
+    padding-top: rem(110 + $top-gutter);
   }
 }

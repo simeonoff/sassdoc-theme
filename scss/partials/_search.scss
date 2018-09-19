@@ -4,11 +4,15 @@
     background: $nav-bg;
     width: rem($navbar-width);
     min-width: rem($navbar-width);
-    top: rem(126px);
+    top: rem(map-get($infra-head-height, 'mobile') + $secondary-header-height);
+
+    @media only screen and (min-width: 960px) {
+        top: rem(map-get($infra-head-height, 'desktop') + $secondary-header-height);
+    }
 
     @include e(input-container) {
         position: relative;
-        height: rem(36);
+        height: rem($search-input-height);
     }
 
     @include e(input-icon) {

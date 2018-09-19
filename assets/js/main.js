@@ -2,8 +2,16 @@
     const idx = lunr.Index.load(sassdocIndex);
     const searchBox = document.getElementById('search-results');
     const searchInput = document.getElementById('search-docs');
+    const footer = document.querySelector('.ui-footer');
+    const sidebar = document.querySelector('.nav-wrapper__nav');
+    const sidebarHeight = sidebar.offsetHeight;
+    const headerHeight = document.querySelector('.header').offsetHeight;
+    const searchHeight = searchInput.offsetHeight;
+    let scrollPosition = 0;
+    let updating = false;
 
-    const renderListItem = items => {
+    const renderListItem = (items, onClickHandler) => {
+        hideMenu = onClickHandler;
         return items.map(item => {
             const arr = item.ref.split('-');
             const type = arr[0];
@@ -11,7 +19,7 @@
 
             return `
             <li class="search-form__results-list-item">
-                <a href=#${item.ref}>
+                <a href=#${item.ref} onclick="hideMenu()">
                     <span class="item--${type}">${type.substring(0, 3)}</span>
                     <span>${name}</span>
                 </a>
@@ -23,7 +31,7 @@
     const listTemplate = items => {
         return `
             <ul class="search-form__results-list">
-                ${renderListItem(items)}
+                ${renderListItem(items, this.hideSearchResults)}
             </ul>
         `;
     };
@@ -32,6 +40,7 @@
     init = () => {
         searchInput.addEventListener('input', this.search);
         this.toggle('.nav-group__header', 'click');
+        this.adjustSidebarHeight();
         hljs.initHighlightingOnLoad();
     }
 
@@ -40,7 +49,6 @@
         let result = '';
         if (term) {
             result = idx.search(`${term}~1`)
-            console.log(result);
             this.renderSearchItems(searchBox, listTemplate, result);
         } else {
             this.renderSearchItems(searchBox, () => '', null);
@@ -80,6 +88,33 @@
         subnav.forEach(nav => {
             nav.classList.toggle(`${nav.classList[0]}--collapsed`);
         });
+    }
+
+    adjustSidebarHeight = () => {
+        window.addEventListener('scroll', this.onScrollHandler, false);
+    }
+
+    onScrollHandler = () => {
+        scrollPosition = window.scrollY;
+        this.requestSidebarUpdate();
+    }
+
+    requestSidebarUpdate = () => {
+        if (!updating) {
+            window.requestAnimationFrame(this.updateSidebar);
+        }
+        updating = true;
+    }
+
+    updateSidebar = () => {
+        const proposedHeight = footer.offsetTop - scrollPosition - (headerHeight + searchHeight);
+
+        if (sidebarHeight > proposedHeight) {
+            sidebar.style.height = `${proposedHeight}px`;
+        } else {
+            sidebar.style.height = `calc(100% - ${headerHeight + searchHeight}px)`;
+        }
+        updating = false;
     }
 
     this.init();

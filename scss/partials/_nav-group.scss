@@ -1,19 +1,20 @@
 @include b(nav-wrapper) {
+  position: relative;
   width: rem($navbar-width);
   min-width: rem($navbar-width);
-  position: relative;
   top: rem(36);
 
   @include e(nav) {
-    background: $nav-bg;
-    width: rem($navbar-width);
-    border-right: 1px solid $nav-border-color;
     position: fixed;
-    height: calc(100% - #{rem($header-height)});
-    overflow-x:hidden;
+    width: rem($navbar-width);
+    height: calc(100% - #{map-get($infra-head-height, 'mobile') + $secondary-header-height + $search-input-height}px);
+    background: $nav-bg;
+    border-right: 1px solid $nav-border-color;
+    overflow-x: hidden;
     overflow-y: auto;
   }
 }
+
 @include b(nav-group) {
   list-style: none;
   padding: 0;
@@ -45,6 +46,7 @@
         content: '\e15b';
     }
   }
+
   @include e(header, $m: collapsed) {
     h1::before {
         color: $igblue;

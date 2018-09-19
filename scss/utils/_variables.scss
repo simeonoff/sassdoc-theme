@@ -53,7 +53,12 @@ $content-gutter: 24;
 $top-margin: $bottom-gutter;
 $top-margin-negative: -16;
 
+$infra-head-height: (
+    desktop: 76,
+    mobile: 60
+);
 
-$header-height: 50;
-//$footer-height: 50;
+$secondary-header-height: 50;
+$search-input-height: 36;
+
 $navbar-width: 238;
